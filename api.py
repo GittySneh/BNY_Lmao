@@ -481,14 +481,14 @@ def main_func(extracted_text1):
 
     BANK STATEMENT:-
     '''
-    # resumeSummary1 = model.generate_content(instruction1 + extracted_text)
-    # summ1 = model.generate_content(summaryprompt + extracted_text1 )
+    resumeSummary1 = model.generate_content(instruction1 + extracted_text1)
+    summ1 = model.generate_content(summaryprompt + extracted_text1 )
 
-    # resumeSummary = model.generate_content(instruction1 + summ1.text )
+    resumeSummary = model.generate_content(instruction1 + summ1.text )
 
-    # data_string = correct_json_format(resumeSummary.text)
-    # data_string = resumeSummary.text ## KEEP THIS
-    data_string = extracted_text1 ## OR THIS
+    data_string = correct_json_format(resumeSummary.text)
+    data_string = resumeSummary.text ## KEEP THIS
+    # data_string = extracted_text1 ## OR THIS
     # print(data_string)
     #  # Debug: Print extracted text before processing
     # print("Debug: Extracted text before processing:\n", data_string)
@@ -529,16 +529,35 @@ def main_func(extracted_text1):
     # print("Cleaned data_string:\n", data_string)
 
     # Evaluate the string
-    data_tuples = ast.literal_eval(data_string)
+####################WORKING VERSION 0.1##########################################333
+    # print(f"DATA GIVEN BY API CALL: {data_string}")
 
-    # Convert the string to a list of tuples using ast.literal_eval
     # data_tuples = ast.literal_eval(data_string)
 
-    # Define the columns for the DataFrame
-    columns = ['client_name', 'bank_name', 'account_number', 'transaction_date', 'credit_debit', 'description', 'amount', 'balance']
+    # # Convert the string to a list of tuples using ast.literal_eval
+    # # data_tuples = ast.literal_eval(data_string)
 
-    # Create a DataFrame
+    # # Define the columns for the DataFrame
+    # columns = ['client_name', 'bank_name', 'account_number', 'transaction_date', 'credit_debit', 'description', 'amount', 'balance']
+
+    # # Create a DataFrame
+    # df = pd.DataFrame(data_tuples, columns=columns)
+#############################################################################################
+    import ast
+    import pandas as pd
+    import re
+    cleaned_string = re.sub(r'R([\d,]+\.\d+)', lambda x: x.group(1).replace(',', ''), data_string)
+
+    # Step 2: Convert the cleaned string to a list of tuples using ast.literal_eval
+    data_tuples = ast.literal_eval(cleaned_string)
+
+    # Step 3: Define columns for the DataFrame
+    columns = ['client_name', 'bank_name', 'account_number', 'transaction_date', 
+            'credit_debit', 'description', 'amount', 'balance']
+
+    # Step 4: Create a DataFrame
     df = pd.DataFrame(data_tuples, columns=columns)
+
 
 
     #print(ressume)

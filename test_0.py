@@ -103,22 +103,22 @@ if uploaded_file is not None:
     st.info("Processing the PDF file...")
 
     # INSERT TANAY's CODE HERE (return a data *pd.DataFrame*)
-    # text=extract_text_from_pdf(uploaded_file)
+    text=extract_text_from_pdf(uploaded_file)
 
-    text = """[
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/19/2020", "Credit", "Correction: Cash Withdrawal Cpg", 100.00, 132.27),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/19/2020", "Credit", "Correction: ATS Cash vataraval Fee", 6.56, 138.83),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Credit", "Banking App Payment Received A Pieterse", 1000.00, 1138.83),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "Banking App Payment Luna", 100.00, 1038.83),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "Banking App Payment Fee", 1.60, 1037.23),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "ATM Balance Enquiry Fee", 5.55, 1031.68),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "ATM Cash Withdrawal Spar Panorama (Card 1551)", 1000.00, 31.68),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "Cash Withdrawal Fee (ATM)", 8.83, 22.85),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Credit", "Interest Received", 1.49, 24.34),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "SMS Notification Fee", 0.80, 23.54),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "Monthly Account Admin Fee", 5.80, 17.74),
-        ("Mr. John Doe", "B1 Bank", "1261234567", "09/01/2020", "Credit", "Banking App Payment Received A Pieterse", 200.00, 217.74)
-    ]"""
+    # text = """[
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/19/2020", "Credit", "Correction: Cash Withdrawal Cpg", 100.00, 132.27),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/19/2020", "Credit", "Correction: ATS Cash vataraval Fee", 6.56, 138.83),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Credit", "Banking App Payment Received A Pieterse", 1000.00, 1138.83),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "Banking App Payment Luna", 100.00, 1038.83),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "Banking App Payment Fee", 1.60, 1037.23),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "ATM Balance Enquiry Fee", 5.55, 1031.68),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "ATM Cash Withdrawal Spar Panorama (Card 1551)", 1000.00, 31.68),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "Cash Withdrawal Fee (ATM)", 8.83, 22.85),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Credit", "Interest Received", 1.49, 24.34),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "SMS Notification Fee", 0.80, 23.54),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "08/31/2020", "Debit", "Monthly Account Admin Fee", 5.80, 17.74),
+    #     ("Mr. John Doe", "B1 Bank", "1261234567", "09/01/2020", "Credit", "Banking App Payment Received A Pieterse", 200.00, 217.74)
+    # ]"""
 
     data = main_func(text)   ###IDHAR COMMENT KIYA HAI
 
